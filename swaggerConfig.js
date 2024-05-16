@@ -184,7 +184,7 @@ Find additional information and stay updated with the latest changes to our API 
 
 const specs = swaggerJsdoc(options);
 function swaggerDocs(app, port) {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+  app.use('/', swaggerUi.serve, swaggerUi.setup(specs));
   console.log(`Swagger UI available at http://localhost:${port}/api-docs`);
 }
 

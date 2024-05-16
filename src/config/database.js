@@ -1,7 +1,8 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('user_project_management', 'root', 'root', {
-  host: 'localhost',
+// Substitua 'localhost' pelo nome do serviço do MySQL definido no docker-compose.yml
+const sequelize = new Sequelize('user_project_management', 'user', 'password', {
+  host: 'db', // Nome do serviço do MySQL no docker-compose.yml
   dialect: 'mysql',
 });
 

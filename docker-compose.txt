@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0  # Especifique a versão para garantir compatibilidade
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user_project_management
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"  # Mapeamento de porta
+    volumes:
+      - dbdata:/var/lib/mysql  # Volume nomeado para persistência
+    networks:
+      - app-network
+
+  api-node:
+    build: .  # Certifique-se de que o caminho está correto
+    ports:
+      - "3000:3000"  # Mapeamento de porta
+    volumes:
+      - .:/usr/src/app  # Caminho absoluto no contêiner
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

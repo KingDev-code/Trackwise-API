@@ -22,17 +22,17 @@ const User = sequelize.define('User', {
     },
     isActive: {
         type: DataTypes.BOOLEAN,
-        field: 'is_active'  // Mapeia para o nome de coluna correto se diferente
+        field: 'is_active'  // Maps to the correct column name if different
     },
     lastLogin: {
         type: DataTypes.DATE,
-        field: 'last_login'  // Mapeia para o nome de coluna correto se diferente
+        field: 'last_login'  // Maps to the correct column name if different
     }
 }, {
-    tableName: 'users',  // Nome da tabela conforme definido no Symfony
-    timestamps: true,   // Habilita o manuseio automático de timestamps
-    createdAt: 'created_at',  // Mapeia para o nome de coluna correto
-    updatedAt: 'updated_at'   // Mapeia para o nome de coluna correto
+    tableName: 'users',  // Table name as defined in Symfony
+    timestamps: true,   // Enables automatic handling of timestamps
+    createdAt: 'created_at',  // Maps to the correct column name
+    updatedAt: 'updated_at'   // Maps to the correct column name
 });
 
 module.exports = User;

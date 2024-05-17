@@ -1,8 +1,8 @@
 const app = require('./src/app');
 const PORT = process.env.PORT || 3000;
-const swaggerDocs = require('./swaggerConfig.js'); // Ajuste o caminho se necessário
+const swaggerDocs = require('./swaggerConfig.js'); // Adjust the path if necessary
 
-swaggerDocs(app, PORT); // Inicializa a documentação Swagger
+swaggerDocs(app, PORT); // Initialize Swagger documentation
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);

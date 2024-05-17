@@ -44,7 +44,7 @@ exports.getArticle = async (req, res) => {
 // Geting for ID of Projects
 exports.getArticlesByProjectId = async (req, res) => {
     try {
-        const projectId = req.params.projectId; // Obter o ID do projeto dos parâmetros da rota
+        const projectId = req.params.projectId;
         const articles = await Article.findAll({
             where: { projectId: projectId }
         });

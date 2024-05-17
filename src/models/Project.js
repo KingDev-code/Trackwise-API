@@ -14,7 +14,7 @@ const Project = sequelize.define('Project', {
     tableName: 'projects'
 });
 
-// Relacionamento
+// // Relationship: A user can have many projects
 Project.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 User.hasMany(Project, { foreignKey: 'userId', as: 'projects' });
 

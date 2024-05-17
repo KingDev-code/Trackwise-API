@@ -15,18 +15,16 @@ exports.createProject = async (req, res) => {
     try {
         const { name, description, userId } = req.body;
 
-        // Encontrar o usuário baseado no userId fornecido
         const user = await User.findByPk(userId);
         console.log(user);
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
 
-        // Criando o projeto e associando ao usuário
         const project = await Project.create({
             name,
             description,
-            userId: user.id  // Associando o usuário ao projeto
+            userId: user.id
         });
 
         res.status(201).json(project);
@@ -53,7 +51,7 @@ exports.getProject = async (req, res) => {
 // Get projects by User ID
 exports.getProjectsByUserId = async (req, res) => {
   try {
-      const userId = req.params.userId; // Obter o ID do usuário dos parâmetros da rota
+      const userId = req.params.userId;
       const projects = await Project.findAll({
           where: { userId: userId }
       });
@@ -100,7 +98,7 @@ exports.deleteProject = async (req, res) => {
     }
 
     await project.destroy();
-    res.status(204).send(); // Nenhum conteúdo para enviar após a exclusão
+    res.status(204).send();
   } catch (error) {
     console.error('Error deleting project:', error);
     res.status(500).json({ message: 'Error deleting project' });

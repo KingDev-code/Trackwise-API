@@ -1,8 +1,6 @@
-// src/models/Article.js
-
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Project = require('./Project'); // Importe o modelo Project
+const Project = require('./Project'); // Import the Project model
 
 const Article = sequelize.define('Article', {
     title: {
@@ -25,7 +23,7 @@ const Article = sequelize.define('Article', {
     tableName: 'articles'
 });
 
-// Relacionamento: Um projeto pode ter muitos artigos
+// Relationship: A project can have many articles
 Project.hasMany(Article, { foreignKey: 'projectId' });
 Article.belongsTo(Project, { foreignKey: 'projectId' });
 
